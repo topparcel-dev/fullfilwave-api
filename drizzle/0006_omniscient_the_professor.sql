@@ -1,0 +1,22 @@
+CREATE TABLE "tiktok_products" (
+	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
+	"tiktok_product_id" text NOT NULL,
+	"shop_id" text,
+	"seller_sku" text,
+	"barcode" text,
+	"title" text NOT NULL,
+	"description" text,
+	"product_status" integer,
+	"category_id" text,
+	"brand_id" text,
+	"currency" text DEFAULT 'USD',
+	"price" numeric(10, 2),
+	"stock_quantity" integer,
+	"skus" jsonb,
+	"main_images" jsonb,
+	"video_url" text,
+	"created_at" timestamp DEFAULT CURRENT_TIMESTAMP,
+	"updated_at" timestamp DEFAULT CURRENT_TIMESTAMP,
+	"raw_data" jsonb,
+	CONSTRAINT "tiktok_products_tiktok_product_id_unique" UNIQUE("tiktok_product_id")
+);

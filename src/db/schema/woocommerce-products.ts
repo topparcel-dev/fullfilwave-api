@@ -1,0 +1,32 @@
+import { pgTable, uuid, text, numeric, jsonb, timestamp, bigint, integer } from "drizzle-orm/pg-core";
+import { sql } from "drizzle-orm";
+
+export const woocommerceProducts = pgTable("woocommerce_products", {
+  id: uuid("id").defaultRandom().primaryKey(),
+  wcProductId: bigint("wc_product_id", { mode: "number" }).notNull().unique(),
+  sellerSku: text("seller_sku"),
+  barcode: text("barcode"),
+  name: text("name").notNull(),
+  slug: text("slug"),
+  permalink: text("permalink"),
+  type: text("type"),
+  status: text("status"),
+  description: text("description"),
+  shortDescription: text("short_description"),
+  price: numeric("price", { precision: 10, scale: 2 }),
+  regularPrice: numeric("regular_price", { precision: 10, scale: 2 }),
+  salePrice: numeric("sale_price", { precision: 10, scale: 2 }),
+  stockQuantity: integer("stock_quantity"),
+  stockStatus: text("stock_status"),
+  currency: text("currency").default("USD"),
+  images: jsonb("images"),
+  categories: jsonb("categories"),
+  tags: jsonb("tags"),
+  attributes: jsonb("attributes"),
+  variations: bigint("variations", { mode: "number" }).array(),
+  dateOnSaleFrom: timestamp("date_on_sale_from"),
+  dateOnSaleTo: timestamp("date_on_sale_to"),
+  createdAt: timestamp("created_at").default(sql`CURRENT_TIMESTAMP`),
+  updatedAt: timestamp("updated_at").default(sql`CURRENT_TIMESTAMP`),
+  rawData: jsonb("raw_data"),
+});

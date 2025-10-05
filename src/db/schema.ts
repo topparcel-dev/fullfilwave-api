@@ -14,3 +14,11 @@ export const users = pgTable(
 
 export type User = typeof users.$inferSelect;
 export type NewUser = typeof users.$inferInsert;
+
+export * from "../../schema/user-products";
+export * from "./schema/shopify-products";
+export * from "./schema/ebay-listings";
+export * from "./schema/amazon-products";
+export * from "./schema/etsy-listings";
+export * from "./schema/tiktok-products";
+export * from "./schema/woocommerce-products";

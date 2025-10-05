@@ -8,6 +8,55 @@
       "when": 1759651638396,
       "tag": "0000_lovely_captain_america",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1759652027338,
+      "tag": "0001_secret_stranger",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1759652597514,
+      "tag": "0002_famous_meteorite",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1759652726233,
+      "tag": "0003_dazzling_doctor_spectrum",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1759652825163,
+      "tag": "0004_friendly_speed",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1759652907652,
+      "tag": "0005_colorful_boomer",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1759652981282,
+      "tag": "0006_omniscient_the_professor",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1759653118342,
+      "tag": "0007_cynical_gressill",
+      "breakpoints": true
     }
   ]
 }

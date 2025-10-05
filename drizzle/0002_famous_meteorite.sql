@@ -1,0 +1,23 @@
+CREATE TABLE "shopify_products" (
+	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
+	"shopify_id" bigint NOT NULL,
+	"seller_sku" text,
+	"barcode" text,
+	"title" text NOT NULL,
+	"handle" text,
+	"body_html" text,
+	"vendor" text,
+	"product_type" text,
+	"status" text,
+	"tags" text[],
+	"price" numeric(10, 2),
+	"currency" text DEFAULT 'USD',
+	"stock_quantity" numeric(8, 0),
+	"variants" jsonb,
+	"images" jsonb,
+	"options" jsonb,
+	"metafields" jsonb,
+	"created_at" timestamp DEFAULT CURRENT_TIMESTAMP,
+	"updated_at" timestamp DEFAULT CURRENT_TIMESTAMP,
+	CONSTRAINT "shopify_products_shopify_id_unique" UNIQUE("shopify_id")
+);
