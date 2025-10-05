@@ -1,25 +1,60 @@
 import { Elysia } from "elysia";
-import { sql } from "drizzle-orm";
+import { swagger } from "@elysiajs/swagger";
 import { db } from "./db/client";
 
+import {
+  shopifyProducts,
+  ebayListings,
+  amazonProducts,
+  etsyListings,
+  tiktokProducts,
+  woocommerceProducts,
+} from "./db/schema";
+
 const app = new Elysia()
-  .get("/", async () => {
-    try {
-      const [row] = await db.execute(sql`select version() as version`);
-      return {
-        status: "ok",
-        database: row?.version,
-      };
-    } catch (error) {
-      console.error("Database health check failed", error);
-      return {
-        status: "error",
-        message: "Database connection failed",
-      };
-    }
+  .use(
+    swagger({
+      path: "/swagger",
+      documentation: {
+        info: {
+          title: "FullfilWave API",
+          version: "1.0.0",
+          description: "Mock integrations for all connected sales channels",
+        },
+      },
+    })
+  )
+
+  // Shopify
+  .get("/shopify/products", async () => {
+    return await db.select().from(shopifyProducts).limit(20);
   })
+
+  // eBay
+  .get("/ebay/listings", async () => {
+    return await db.select().from(ebayListings).limit(20);
+  })
+
+  // Amazon
+  .get("/amazon/products", async () => {
+    return await db.select().from(amazonProducts).limit(20);
+  })
+
+  // Etsy
+  .get("/etsy/listings", async () => {
+    return await db.select().from(etsyListings).limit(20);
+  })
+
+  // TikTok
+  .get("/tiktok/products", async () => {
+    return await db.select().from(tiktokProducts).limit(20);
+  })
+
+  // WooCommerce
+  .get("/woocommerce/products", async () => {
+    return await db.select().from(woocommerceProducts).limit(20);
+  })
+
   .listen(3000);
 
-console.log(
-  `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
-);
+console.log(`🦊 Elysia is running on http://localhost:3000/swagger`);

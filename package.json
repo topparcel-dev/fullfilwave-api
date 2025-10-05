@@ -8,9 +8,11 @@
     "db:migrate": "drizzle-kit migrate",
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
-    "seed:user-products": "bun scripts/seed-user-products.ts"
+    "seed:user-products": "bun scripts/seed-user-products.ts",
+    "seed:channels": "bun scripts/seed-channels.ts"
   },
   "dependencies": {
+    "@elysiajs/swagger": "^1.3.1",
     "@faker-js/faker": "^10.0.0",
     "drizzle-orm": "^0.44.6",
     "elysia": "latest",
